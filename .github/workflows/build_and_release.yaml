@@ -12,7 +12,7 @@ on:
         description: Publish GitHub Release (disable for build-only validation)
         type: boolean
         required: true
-        default: true
+        default: false
 env:
   BUILD_TYPE: Release
 
@@ -63,7 +63,7 @@ jobs:
         matrix:
           # Ubuntu 26.04's static OpenSSL dependencies break bundled libarchive.
           # Keep the last working Linux baseline until that integration is fixed.
-          os: [ windows-latest, ubuntu-24.04, macOS-latest ]
+          os: [ windows-latest ]
         fail-fast: false
     steps:
       - name: Install Dependencies
